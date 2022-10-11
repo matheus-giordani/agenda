@@ -1,0 +1,78 @@
+<%- include('includes/head') %> <%- include('includes/navBar.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Login</h1>
+      <p class="text-center lead">Make login or create your account</p>
+      <%- include('includes/messages') %> 
+      <div class="row">
+        <div class="col-lg">
+          <h4>Create your account</h4>
+          <form class="needs-validation" action="/login/register" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                name="password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </form>
+        </div>
+        <span class="border-left"></span>
+        <div class="col-lg">
+          <h4>Login</h4>
+          <form class="needs-validation" action="/login/login" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group pt-4">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword2"
+                name="password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/validation') %> <%- include('includes/footer') %>
